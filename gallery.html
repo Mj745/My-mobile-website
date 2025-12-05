@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Gallery - Personal Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to My Personal Website</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<a href="login.html" class="logout-button" 
+onclick="confirmLogout(event)">LOG OUT</a>
+</ul>
+</nav>
+<section id="section2"></section>
+<section id="gallery">
+<h2>Gallery</h2>
+<p style="text-align: center;">Step into my visual World:</p>
+<div class="gallery">
+<div class="gallery-item">
+<img src="IMG_20251113_155708_499@-532632194.jpg" alt="Just chillin and enjoying the CCIS Day" class="thumbnail" 
+onclick="openLightbox(); changeImage('IMG_20251113_155708_499@-532632194.jpg');">
+<p class="image-description">Having fun attending CCIS Day🫶🏻</p>
+</div>
+<div class="gallery-item">
+<img src="IMG_20251113_115748_983.jpg" alt="Project Image 2" class="thumbnail" 
+onclick="openLightbox(); changeImage('IMG_20251113_115748_983.jpg');">
+<p class="image-description">Receiving an Academic Award🏆🏆</p>
+</div>
+<div class="gallery-item">
+<img src="1762680502001.jpg" alt="Project Image 3" class="thumbnail" 
+onclick="openLightbox(); changeImage('1762680502001.jpg');">
+<p class="image-description">Chilli'n at Magan Restaurant✨</p>
+</div>
+<div class="gallery-item">
+<img src="Messenger_creation_2B432FDF-1DBB-4809-830F-4A4698E2398A.jpeg" alt="Project Image 3" class="thumbnail" 
+onclick="openLightbox(); changeImage('Messenger_creation_2B432FDF-1DBB-4809-830F-4A4698E2398A.jpeg');">
+<p class="image-description"p>Just taking a photo🤳🏻</p>
+</div>
+</div>
+<!-- Add more gallery items as needed -->
+</div>
+<div id="lightbox" class="lightbox">
+<span class="close" onclick="closeLightbox()">&times;</span>
+<img class="lightbox-content" id="lightboxImage" src="">
+<a class="prev" onclick="changeImage(-1)">&#10094;</a>
+<a class="next" onclick="changeImage(1)">&#10095;</a>
+</div>
+</section>
+<!-- Embedded JavaScript -->
+<script>
+// Add 'e' as an argument and call e.preventDefault()
+function confirmLogout(e) { 
+    // Prevent the default link action (going to login.html)
+    e.preventDefault(); 
+    
+    // Show a confirmation message to the user 
+    const isConfirmed = confirm("Are you sure you want to log out?");
+
+    // If the user confirms (clicks OK), proceed with logging out 
+    if (isConfirmed) {
+        // Mark the user as logged out in localStorage (if used)
+        localStorage.removeItem('isLoggedIn');
+        // Redirect to the login page
+        window.location.href = 'login.html';
+    } else {
+        // If the user clicks Cancel, the function ends, and the link's 
+        // default action has already been prevented, so you stay on the page.
+        return; 
+    }
+}
+</script>
+<script>
+// Your confirmLogout function is correct.
+
+// --- Lightbox Functions ---
+let currentImageIndex = 0;
+// FIX 1: Added missing closing quote to the selector.
+const images = document.querySelectorAll('.thumbnail'); // Get all the gallery images
+
+function openLightbox() {
+    document.getElementById('lightbox').style.display = 'block';
+    // No need to call showImage here, as it's called by the click listener below.
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+function showImage(index) {
+    // 1. Update the current index
+    currentImageIndex = index; 
+    
+    // 2. Set the lightbox image source
+    document.getElementById('lightboxImage').src = images[currentImageIndex].src;
+
+    // 3. Open the lightbox (if it's not already open)
+    openLightbox();
+}
+
+function changeImage(direction) {
+    currentImageIndex += direction;
+    
+    // Wrap around when at the start or end of the images
+    if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    }
+    
+    // Show the new image
+    document.getElementById('lightboxImage').src = images[currentImageIndex].src;
+}
+
+// FIX 2 & 3: Set each thumbnail to open the lightbox with its corresponding image.
+// This is the cleanest way to initialize the currentImageIndex.
+document.addEventListener("DOMContentLoaded", function() {
+    images.forEach((img, index) => {
+        // When a thumbnail is clicked, update the index and show the image.
+        img.addEventListener('click', () => showImage(index));
+    });
+});
+</script>
+<footer>
+<p>&copy; 2025 Mariel Joyce. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div>
+</body>
+</html>

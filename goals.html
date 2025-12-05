@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>My Goals as a Student</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to My Personal Website</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<a href="login.html" class="logout-button" 
+onclick="confirmLogout(event)">LOG OUT</a>
+</ul>
+</nav>
+<section id="section2"></section>
+<section id="drop">
+<h2>My Goals as a Student</h2>
+<p style="text-align: center;">Here are some goals that <strong>I'm aiming for</strong></p>
+<div class="goal-grid">
+<div class="goal-card" onclick="toggleGoalDetails(1)">
+<div class="goal-header" style="background-color: 
+lightcoral;"><strong>Personal Growth Goal</strong></div>
+<p><strong>Develop soft skills such as, communication, teamwork,and become more effective collaborator</strong></p>
+<div class="goal-details" id="goal1-details">
+<p>To develop greater self-awareness and emotional intelligence, allowing me to navigate complex situations with confidence and empathy. I aim to achieve this by practicing mindfulness, seeking constructive feedback, and engaging in continuous learning. Through this journey, I aspire to become a more effective communicator, build stronger relationships, and make informed decisions that align with my values and goals."</p>
+</div>
+</div>
+<div class="goal-card" onclick="toggleGoalDetails(1)">
+<div class="goal-header" style="background-color: 
+#0288d1;"><strong>Business Goals</strong></div>
+<p><strong>Develop successful product or services that solve a real-world problem and generates revenue.</strong></p>
+<div class="goal-details" id="goal2-details">
+<p>To leverage technology to drive innovation and growth, creating value for our customers, stakeholders, and the community. We aim to achieve this by developing and implementing cutting-edge solutions, expanding our market reach, and building strong partnerships. Through strategic planning and execution, we strive to stay ahead of the competition, enhance our brand reputation, and ultimately become a leader in our industry."</p>
+</div>
+</div>
+<div class="goal-card" onclick="toggleGoalDetails(2)">
+<div class="goal-header" style="background-color: 
+lightpink;"><strong>Leadership Goal</strong></div>
+<p><strong>Become a thought leader in the IT industry,speakin at conferences and mentoring others</strong></p>
+<div class="goal-details" id="goal3-details">
+<p>My leadership goal is to empower and inspire my team to achieve their full potential, driving collective success and growth. I aim to accomplish this by fostering a culture of collaboration, innovation, and accountability, where individuals feel valued, supported, and encouraged to take ownership. Through effective communication, mentorship, and strategic guidance, I strive to develop future leaders and contribute to the organization's vision and mission. By leading with integrity, empathy, and vision, I aspire to make a lasting impact and leave a legacy of excellence.</p>
+</div>
+</div>
+<div class="goal-card" onclick="toggleGoalDetails(2)">
+<div class="goal-header" style="background-color: 
+lightsalmon;"><strong>Innovation Goal</strong></div>
+<p><strong>Develop a innovative solution to real world-problem. </strong></p>
+<div class="goal-details" id="goal4-details">
+<p>My innovation goal is to harness creativity and technology to develop novel solutions that address real-world problems and exceed customer expectations. I aim to achieve this by fostering a culture of experimentation, embracing design thinking, and staying up-to-date with the latest trends and advancements. Through collaboration with cross-functional teams and stakeholders, I strive to identify opportunities for innovation and develop solutions that drive business growth, improve efficiency, and enhance user experience. By embracing a mindset of continuous learning and improvement, I aspire to bring innovative ideas to life and make a meaningful impact in my industry.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<footer>
+<p>&copy; 2025 Mariel Joyce. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div> <!-- Orange line -->
+<!-- Embedded JavaScript -->
+<script>
+// Function to toggle details for both cards in a row
+function toggleGoalDetails(group) {
+const details1 = document.getElementById('goal' + (group * 2 -
+1) + '-details');
+const details2 = document.getElementById('goal' + (group * 2) 
++ '-details');
+// Toggle visibility for the paired goals
+details1.classList.toggle('active');
+details2.classList.toggle('active');
+}
+</script>
+<script>
+// Add 'e' as an argument and call e.preventDefault()
+function confirmLogout(e) { 
+    // Prevent the default link action (going to login.html)
+    e.preventDefault(); 
+    
+    // Show a confirmation message to the user 
+    const isConfirmed = confirm("Are you sure you want to log out?");
+
+    // If the user confirms (clicks OK), proceed with logging out 
+    if (isConfirmed) {
+        // Mark the user as logged out in localStorage (if used)
+        localStorage.removeItem('isLoggedIn');
+        // Redirect to the login page
+        window.location.href = 'login.html';
+    } else {
+        // If the user clicks Cancel, the function ends, and the link's 
+        // default action has already been prevented, so you stay on the page.
+        return; 
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Home - Personal Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to My Personal Website</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<a href="login.html" class="logout-button" onclick="confirmLogout(event)">LOG OUT</a>
+</ul>
+</nav>
+<section id="section2"></section>
+<div class="slider">
+<div class="slides">
+<div class="slide">
+<img src="compressed_1764072372305.jpg" alt="Image 1">
+<div class="text-overlay"><h1> Welcome to my Website! 
+</h1></div>
+</div>
+<div class="slide">
+<img src="compressed_1764072508632.jpg" alt="Image 2">
+<div class="text-overlay"><h1> Have fun knowing me</h1></div>
+</div>
+<div class="slide">
+<img src="compressed_1764072649287.jpg" alt="Image 3">
+<div class="text-overlay"><h1> Dig deeper </h1></div>
+</div>
+<div class="slide">
+<img src="compressed_1764118102888.jpg" alt="Image 4">
+<div class="text-overlay"><h1> Your close enough</h1></div>
+</div>
+</div>
+<section id="drop">
+<h2>Fun Facts About Me</h2>
+<p><strong>Trivia Time! Get ready to be surprised and delighted by some interesting tidbits and trivia that showcase the lighter side of ME.! </strong></p>
+<div class="funfact-container">
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>🫶🏻</p>
+</div>
+<div class="funfact-back">
+<p>I love watching k-pop!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>💗</p>
+</div>
+<div class="funfact-back">
+<p>I love my family !</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>🌷</p>
+</div>
+<div class="funfact-back">
+<p>I dont drink coffee but I love bittersweet!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>🫰🏻</p>
+</div>
+<div class="funfact-back">
+<p>I search what my dreams mean!</p>
+</div>
+</div>
+</div>
+</div>
+<!-- See More Button -->
+<div class="see-more-container">
+<a href="funfacts.html" class="see-more-button">See More 
+Funfacts</a>
+</div>
+</section>
+<div class="container">
+<div class="image-section">
+<img src="Messenger_creation_2B432FDF-1DBB-4809-830F-4A4698E2398A.jpeg" alt="Ton's Image">
+</div>
+<div class="quote-section">
+<h1>Hi, I'm Mariel!</h1>
+<p>"Hello,I'm an Information Technology student with a passion for crafting innovative and user-centric digital experiences through front-end web development. With a keen eye for design and a love for coding, I enjoy building responsive and interactive web applications that leave a lasting impact. My interests also extend to graphic design, where I appreciate the creative process of visual storytelling. I'm an enthusiastic learner, always looking to expand my skill set and stay up-to-date with the latest technologies and trends."</p>
+<blockquote>
+"Be compassionate of what you're doing, who knows what you will become someday."
+</blockquote>
+</div>
+</div>
+<footer>
+<p>&copy; 2025 Mariel Joyce. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div> <!-- Orange line -->
+<!-- Lightbox Container -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+<span class="close" onclick="event.stopPropagation(); 
+closeLightbox()">&times;</span>
+<img class="lightbox-content" id="lightboxImage" src="">
+</div>
+<!-- Embedded JavaScript -->
+<script>
+const slides = document.querySelector('.slides');
+let index = 0;
+
+function showNextSlide() {
+    // Increment index and use modulo (%) to loop back to 0 after 4 slides (0, 1, 2,3)
+    index = (index + 1) % 4;
+    
+    // Move the .slides container left by 100% multiplied by the current index
+    slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+}
+
+// Set an interval to call the showNextSlide function every 3000 milliseconds (3 seconds)
+setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+// ... (rest of your script)
+</script>
+<script>
+function openLightbox(imageSrc) {
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = 
+document.getElementById('lightboxImage');
+lightboxImage.src = imageSrc;
+lightbox.style.display = 'block';
+// Hide header and nav
+document.querySelector('header').style.display = 'none'; 
+// Hides the header
+document.querySelector('nav').style.display = 'none'; 
+// Hides the nav }
+function closeLightbox() {
+const lightbox = document.getElementById('lightbox');
+lightbox.style.display = 'none';
+// Show header and nav
+document.querySelector('header').style.display = 'block'; 
+// Shows the header
+document.querySelector('nav').style.display = 'flex'; // Shows 
+the nav }
+document.addEventListener('DOMContentLoaded', function () {
+const logoutButton = document.querySelector('.logout-button .dropbtn');
+const logoutDropdown = document.querySelector('.logout-dropdown');
+// Toggle dropdown visibility on button click
+logoutButton.addEventListener('click', function () {
+logoutDropdown.style.display =
+logoutDropdown.style.display === 'block' ? 'none' : 'block';
+});
+// Close dropdown if clicking outside of it
+window.addEventListener('click', function (event) {
+if (!event.target.matches('.dropbtn')) {
+if (logoutDropdown.style.display === 'block') {
+logoutDropdown.style.display = 'none'; }}
+});
+});
+</script>
+<script>
+// Add 'e' as an argument and call e.preventDefault()
+function confirmLogout(e) { 
+    // Prevent the default link action (going to login.html)
+    e.preventDefault(); 
+    
+    // Show a confirmation message to the user 
+    const isConfirmed = confirm("Are you sure you want to log out?");
+
+    // If the user confirms (clicks OK), proceed with logging out 
+    if (isConfirmed) {
+        // Mark the user as logged out in localStorage (if used)
+        localStorage.removeItem('isLoggedIn');
+        // Redirect to the login page
+        window.location.href = 'login.html';
+    } else {
+        // If the user clicks Cancel, the function ends, and the link's 
+        // default action has already been prevented, so you stay on the page.
+        return; 
+    }
+}
+</script>
+</body>
+</html>

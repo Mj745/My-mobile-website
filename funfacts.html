@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Fun Facts About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to My Personal Website</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<a href="login.html" class="logout-button" 
+onclick="confirmLogout(event)">LOG OUT</a>
+</ul>
+</nav>
+<section id="section2"></section>
+<section id="drop">
+<h2>Fun Facts About Me</h2>
+<p>Get ready to uncover some fascinating tidbits and surprising truths! Our Fun Facts section is your go-to destination for interesting insights, amazing statistics, and delightful nuggets of information that showcase the lighter side of ME.! </p>
+<div class="funfact-container">
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>🫶🏻</p>
+</div>
+<div class="funfact-back">
+<p>I love watching k-pop!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>💗</p>
+</div>
+<div class="funfact-back">
+<p>I love my family!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>🌷</p> 
+</div>
+<div class="funfact-back">
+<p>I love tulips!</p>
+</div></div></div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>🫰🏻</p>
+</div>
+<div class="funfact-back">
+<p>I search what my dreams mean!</p>
+</div></div></div></div>
+<div class="funfact-container">
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>✨</p>
+</div>
+<div class="funfact-back">
+<p>I love watching revengeful movie!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>💟</p>
+</div>
+<div class="funfact-back">
+<p>I'm an Ambivert!😃</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>💌</p>
+</div>
+<div class="funfact-back">
+<p>I dont drink coffee but I love bittersweet!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>👋🏻</p>
+</div>
+<div class="funfact-back">
+<p>I hate liar!</p>
+</div>
+</div></div></div></div>
+</section>
+<!-- Embedded JavaScript -->
+<script>
+// Add 'e' as an argument and call e.preventDefault()
+function confirmLogout(e) { 
+    // Prevent the default link action (going to login.html)
+    e.preventDefault(); 
+    
+    // Show a confirmation message to the user 
+    const isConfirmed = confirm("Are you sure you want to log out?");
+
+    // If the user confirms (clicks OK), proceed with logging out 
+    if (isConfirmed) {
+        // Mark the user as logged out in localStorage (if used)
+        localStorage.removeItem('isLoggedIn');
+        // Redirect to the login page
+        window.location.href = 'login.html';
+    } else {
+        // If the user clicks Cancel, the function ends, and the link's 
+        // default action has already been prevented, so you stay on the page.
+        return; 
+    }
+}
+</script>
+<footer>
+<p>&copy; 2025 Mariel Joyce. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div> <!-- Orange line -->
+</body>
+</html> 
